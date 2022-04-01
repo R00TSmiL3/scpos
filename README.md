@@ -1,0 +1,2 @@
+# scpos
+langkah awal
