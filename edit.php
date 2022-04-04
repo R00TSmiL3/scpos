@@ -11,14 +11,14 @@ if(isset($_POST['submitSave'])){
 	$quantity = $_POST['quantity'];
 	$description = $_POST['description'];
 	mysqli_query($con, 'update product set name="'.$name.'", price='.$price.', quantity='.$quantity.', description="'.$description.'" where id='.$id);
-	header('Location: index.php');
+	header('Location: admin.php');
 }
 ?>
 <link  rel="stylesheet" href="css/bootstrap.css">
 
 <div align="center">
 <form method="post">
-<table cellpadding="2" cellspacing="2">
+<table cellpadding="2" cellspacing="2" border="0">
 	<tr>
 		<td>Id</td>
 		<td><?php echo $product->id; ?> <input type="hidden" name="id" value="<?php echo $product->id; ?>"></td>

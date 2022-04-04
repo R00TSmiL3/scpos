@@ -5,5 +5,6 @@ class item{
 	var $price;
 	var $description;
 	var $quantity;
+	var $kategori;
 }
 ?>

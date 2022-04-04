@@ -20,7 +20,7 @@
 <body>
 <div align="center">
 <!--TEMPAT GOOGLE CHART-->
-	<div style="width: 800px;margin: 0px auto;">
+	<div style="width: 900px;">
 		<canvas id="myChart"></canvas>
 	</div>
 
@@ -28,14 +28,15 @@
 <br><br>
 <a href="add.php"><button class="btn btn-outline-success">Tambahkan Produk</button></a>
 <br><br>
-<table cellpadding="10" cellspacing="10" border="1">
+<table cellpadding="20" cellspacing="2" border="2">
 	<tr>
-		<th>Nomor</th>
-		<th>Id</th>
-		<th>Nama</th>
-		<th>Harga</th>
-		<th>Deskripsi</th>
-		<th>Option</th>
+		<th align="center" bgcolor="#DCDCDC">Nomor</th>
+		<th align="center" bgcolor="#DCDCDC">Id</th>
+		<th align="center" bgcolor="#DCDCDC">Nama</th>
+		<th align="center" bgcolor="#FF69B4">Harga</th>
+		<th align="center" bgcolor="#DCDCDC">Deskripsi</th>
+		<th align="center" bgcolor="#DCDCDC">Kategori</th>
+		<th align="center" bgcolor="#DCDCDC">Option</th>
 	</tr>
 	<?php
 	$nomer =1;
@@ -43,12 +44,13 @@
 	while($product = mysqli_fetch_array($result)) {
 		?>
 	<tr>
-		<td align="center"> <?php echo $nomer++; ?></td>
-		<td align="center"><?php echo $product['id']; ?></td>
-		<td align="center"><?php echo $product['name']; ?></td>
-		<td align="center"><?php echo $product['price']; ?></td>
-		<td align="center"><?php echo $product['description']; ?></td>
-		<td align="center">	<a 
+		<td align="center" bgcolor="#F5F5F5"><?php echo $nomer++; ?></td>
+		<td align="center" bgcolor="#F5F5F5"><?php echo $product['id']; ?></td>
+		<td align="center" bgcolor="#F5F5F5"><?php echo $product['name']; ?></td>
+		<td align="center" bgcolor="pink"><?php echo $product['price']; ?></td>
+		<td align="center" bgcolor="#F5F5F5"><?php echo $product['description']; ?></td>
+		<td align="center" bgcolor="#F5F5F5"><?php echo $product['kategori'] ?></td>
+		<td align="center" bgcolor="#F5F5F5"><a 
 		href="admin.php?id=<?php echo $product['id']; ?>&action=delete" onclick="return confirm('Apa anda yakin?')"><button class="btn btn-danger">Delete</button></a>
 		<p></p>
 		<a href="edit.php?id=<?php echo $product['id']; ?>"><button class="btn btn-info">Edit</button></a>
@@ -56,8 +58,6 @@
 	</tr>
 		<?php } ?>
 </table>
-<br><br>
-<a href="karakteristik.php"><button class="btn btn-outline-primary">tampilkan karakteristik</button></a>
 <br><br>
 <a href="index.php"><button class="btn btn-outline-primary">home</button></a>
 
@@ -69,7 +69,7 @@
 			//pie,doughnut,
 			type: 'pie',
 			data: {
-				labels: ["nama", "nama"],
+				labels: ["elektronik", "fashion"],
 				datasets: [{
 					label: '',
 					data: [
@@ -78,7 +78,7 @@
 					echo mysqli_num_rows($nam);
 					?>, 
 					<?php 
-					$nam = mysqli_query($koneksi,"select * from product where kategori='produk kecnatikan'");
+					$nam = mysqli_query($koneksi,"select * from product where kategori='fashion'");
 					echo mysqli_num_rows($nam);
 					?>
 					],
